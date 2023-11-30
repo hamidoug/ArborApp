@@ -6,6 +6,9 @@ import {
   Image,
   Dimensions,
   Pressable,
+  ImageBackground,
+  SafeAreaView,
+  ScrollView,
 } from "react-native";
 import * as React from "react";
 import { useState, useEffect } from "react";
@@ -26,22 +29,26 @@ function HomeScreen({ navigation }) {
           resizeMode: "cover",
         }}
       />
-      <Text style={{ fontWeight: "bold" }}>-tap to start-</Text>
+      <Image
+        source={require("../assets/Images/taptostarttext.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.85, //.85 to follow figma
+          left: windowWidth * 0.2,
+          height: windowHeight * 0.03,
+          width: windowWidth * 0.6,
+        }}
+      />
     </Pressable>
   );
 }
 
 function TaskOnePageOne({ navigation }) {
   return (
-    <View>
-      <Image
-        source={require("../assets/Images/grassbackground.png")}
-        style={{
-          height: windowHeight,
-          width: windowWidth,
-          resizeMode: "cover",
-        }}
-      />
+    <ImageBackground
+      source={require("../assets/Images/grassbackground.png")}
+      style={{ flex: 1, resizeMode: "cover" }}
+    >
       <Image
         source={require("../assets/Images/grasset01bush.png")}
         style={{
@@ -598,7 +605,8 @@ function TaskOnePageOne({ navigation }) {
           resizeMode: "cover",
         }}
       />
-    </View>
+      {/* </View> */}
+    </ImageBackground>
   );
 }
 
@@ -667,160 +675,257 @@ function TaskOnePageTwo({ navigation }) {
 
 function TaskOnePageThree({ navigation }) {
   return (
-    <ImageBackground
-      source={require("../assets/Images/task1brownbackground2.png")}
-      style={{ flex: 1, resizeMode: "cover" }}
-    >
-      <ScrollView style={{ flex: 1, padding: 16 }}>
-        <View>
-          <Image
-            source={require("../assets/Images/xbutton.png")}
+    <View style={{ height: "100%" /*flex: 1*/, display: "flex" }}>
+      <ImageBackground
+        source={require("../assets/Images/task1brownbackground2.png")}
+        style={{ flex: 1, resizeMode: "cover" }}
+      >
+        <ScrollView contentContainerStyle={{ padding: 10 }}>
+          <View
             style={{
-              position: "absolute",
-              top: windowHeight * 0.11,
-              left: windowWidth * 0.01,
-              height: windowHeight * 0.07, // Adjust the height as needed
-              width: windowWidth * 0.16, // Adjust the width as needed
+              marginTop: "25%",
+              width: "19%",
+              height: windowHeight * 0.078125,
+              flex: 1,
             }}
-          />
-          <Image
-            source={require("../assets/Images/beachdaytext.png")}
-            style={{
-              position: "absolute",
-              top: windowHeight * 0.19,
-              left: windowWidth * 0.25,
-              height: windowHeight * 0.13, // Adjust the height as needed
-              width: windowWidth * 0.42, // Adjust the width as needed
-            }}
-          />
-          <Image
-            source={require("../assets/Images/layerforcherrymemory2.png")}
-            style={{
-              position: "absolute",
-              top: windowHeight * 0.355,
-              left: windowWidth * 0.11,
-              height: windowHeight * 0.35, // Adjust the height as needed
-              width: windowWidth * 0.7, // Adjust the width as needed
-            }}
-          />
-          <Image
-            source={require("../assets/Images/beachdaypic.png")}
-            style={{
-              position: "absolute",
-              top: windowHeight * 0.365,
-              left: windowWidth * 0.12,
-              height: windowHeight * 0.33, // Adjust the height as needed
-              width: windowWidth * 0.69, // Adjust the width as needed
-            }}
-          />
-          <Image
-            source={require("../assets/Images/descriptiontext1.png")}
-            style={{
-              position: "absolute",
-              top: windowHeight * 0.75,
-              left: windowWidth * 0.17,
-              height: windowHeight * 0.045, // Adjust the height as needed
-              width: windowWidth * 0.56, // Adjust the width as needed
-            }}
-          />
+          >
+            <Image
+              source={require("../assets/Images/xbutton.png")}
+              style={[
+                {
+                  width: "100%",
+                  height: windowHeight * 0.09,
+                  resizeMode: "contain",
+                },
+              ]}
+            />
+          </View>
 
-          <Image
-            source={require("../assets/Images/layerforcherrymemory2.png")}
+          <View
             style={{
-              position: "absolute",
-              top: windowHeight * 0.82,
-              left: windowWidth * 0.11,
-              height: windowHeight * 0.35, // Adjust the height as needed
-              width: windowWidth * 0.7, // Adjust the width as needed
+              marginTop: "5%",
+              marginLeft: 2,
+              height: windowHeight * 0.15625,
+              width: "100%",
             }}
-          />
-          <Image
-            source={require("../assets/Images/descriptiontext2.png")}
-            style={{
-              position: "absolute",
-              top: windowHeight * 0.855,
-              left: windowWidth * 0.132,
-              height: windowHeight * 0.28, // Adjust the height as needed
-              width: windowWidth * 0.675, // Adjust the width as needed
-            }}
-          />
-          <Image
-            source={require("../assets/Images/peopletext1.png")}
-            style={{
-              position: "absolute",
-              top: windowHeight * 1.215,
-              left: windowWidth * 0.28,
-              height: windowHeight * 0.05, // Adjust the height as needed
-              width: windowWidth * 0.35, // Adjust the width as needed
-            }}
-          />
+          >
+            <Image
+              source={require("../assets/Images/beachdaytext.png")}
+              style={[
+                {
+                  width: "100%",
+                  height: windowHeight * 0.15625,
+                  resizeMode: "contain",
+                },
+              ]}
+            />
+          </View>
 
-          <Image
+          <ImageBackground
             source={require("../assets/Images/layerforcherrymemory2.png")}
             style={{
-              position: "absolute",
-              top: windowHeight * 1.295,
-              left: windowWidth * 0.11,
-              height: windowHeight * 0.35, // Adjust the height as needed
-              width: windowWidth * 0.7, // Adjust the width as needed
+              width: "89%",
+              marginLeft: "10%",
+              marginTop: "3%",
             }}
-          />
-          <Image
-            source={require("../assets/Images/peopletext2.png")}
+          >
+            <View style={{ paddingLeft: "5%" }}>
+              <Image
+                source={require("../assets/Images/beachdaypic.png")}
+                style={{ resizeMode: "contain", paddingTop: "93%" }}
+              />
+            </View>
+          </ImageBackground>
+          <View
             style={{
-              position: "absolute",
-              top: windowHeight * 1.36,
-              left: windowWidth * 0.22,
-              height: windowHeight * 0.2, // Adjust the height as needed
-              width: windowWidth * 0.5, // Adjust the width as needed
+              height: windowHeight * 0.067,
+              marginTop: "10%",
+              paddingLeft: "10%",
             }}
-          />
-          <Image
-            source={require("../assets/Images/emotionstext1.png")}
-            style={{
-              position: "absolute",
-              top: windowHeight * 1.68,
-              left: windowWidth * 0.23,
-              height: windowHeight * 0.035, // Adjust the height as needed
-              width: windowWidth * 0.45, // Adjust the width as needed
-            }}
-          />
-          <Image
+          >
+            <Image
+              source={require("../assets/Images/descriptiontext1.png")}
+              style={[
+                {
+                  width: "90%",
+                  height: windowHeight * 0.067,
+                  resizeMode: "contain",
+                },
+              ]}
+            />
+          </View>
+          <ImageBackground
             source={require("../assets/Images/layerforcherrymemory2.png")}
             style={{
-              position: "absolute",
-              top: windowHeight * 1.77,
-              left: windowWidth * 0.11,
-              height: windowHeight * 0.35, // Adjust the height as needed
-              width: windowWidth * 0.7, // Adjust the width as needed
+              marginLeft: "10%",
+              marginTop: "3%",
+              height: windowHeight * 0.357,
+              width: "89%",
             }}
-          />
-          <Image
-            source={require("../assets/Images/emotionstext2.png")}
+          >
+            <View style={{ paddingLeft: "7%", paddingTop: "8%" }}>
+              <Image
+                source={require("../assets/Images/descriptiontext2.png")}
+                style={{ resizeMode: "contain" }}
+              />
+            </View>
+          </ImageBackground>
+
+          <View
             style={{
-              position: "absolute",
-              top: windowHeight * 1.805,
-              left: windowWidth * 0.16,
-              height: windowHeight * 0.27, // Adjust the height as needed
-              width: windowWidth * 0.605, // Adjust the width as needed
+              height: windowHeight * 0.078125,
+              marginTop: "7%",
             }}
-          />
-        </View>
-      </ScrollView>
-    </ImageBackground>
+          >
+            <Image
+              source={require("../assets/Images/peopletext1.png")}
+              style={[
+                {
+                  width: "100%",
+                  height: windowHeight * 0.067,
+                  resizeMode: "contain",
+                },
+              ]}
+            />
+          </View>
+
+          <ImageBackground
+            source={require("../assets/Images/layerforcherrymemory2.png")}
+            style={{
+              marginLeft: "10%",
+              marginTop: "3%",
+              height: windowHeight * 0.357,
+              width: "90%",
+            }}
+          >
+            <View style={{ paddingLeft: "20%", paddingTop: "20%" }}>
+              <Image
+                source={require("../assets/Images/peopletext2.png")}
+                style={{ resizeMode: "contain" }}
+              />
+            </View>
+          </ImageBackground>
+
+          {/* borderWidth: 2,
+          borderColor: "black", */}
+          <View
+            style={{
+              height: windowHeight * 0.078125,
+              marginTop: "7%",
+              paddingLeft: "15%",
+            }}
+          >
+            <Image
+              source={require("../assets/Images/emotionstext1.png")}
+              style={[
+                {
+                  width: "80%",
+                  height: windowHeight * 0.067,
+                  resizeMode: "contain",
+                },
+              ]}
+            />
+          </View>
+
+          <ImageBackground
+            source={require("../assets/Images/layerforcherrymemory2.png")}
+            style={{
+              marginLeft: "10%",
+              marginTop: "3%",
+              height: windowHeight * 0.357,
+              width: "89%",
+            }}
+          >
+            <View style={{ paddingLeft: "7%", paddingTop: "8%" }}>
+              <Image
+                source={require("../assets/Images/emotionstext2.png")}
+                style={{ resizeMode: "contain" }}
+              />
+            </View>
+          </ImageBackground>
+          <View
+            style={{
+              height: windowHeight * 0.078125,
+              marginTop: "7%",
+              paddingLeft: "15%",
+            }}
+          >
+            <Image
+              source={require("../assets/Images/musictext1.png")}
+              style={[
+                {
+                  width: "80%",
+                  height: windowHeight * 0.067,
+                  resizeMode: "contain",
+                },
+              ]}
+            />
+          </View>
+          <ImageBackground
+            source={require("../assets/Images/layerforcherrymemory3.png")}
+            style={{
+              marginLeft: "10%",
+              marginTop: "3%",
+              height: windowHeight * 0.246,
+              width: "89%",
+            }}
+          >
+            <View style={{ paddingLeft: "1%", paddingTop: "20%" }}>
+              <Image
+                source={require("../assets/Images/musictext2.png")}
+                style={{ resizeMode: "contain" }}
+              />
+            </View>
+          </ImageBackground>
+          <ImageBackground
+            source={require("../assets/Images/layerforeatbutton.png")}
+            style={{
+              marginLeft: "25%",
+              marginTop: "10%",
+              marginBottom: "7%",
+              height: windowHeight * 0.167,
+              width: "70%",
+            }}
+          >
+            <Pressable onPress={() => navigation.navigate("FourthPage")}>
+              <View style={{ paddingLeft: "17%", paddingTop: "17%" }}>
+                <Image
+                  source={require("../assets/Images/eattext.png")}
+                  style={{ resizeMode: "contain" }}
+                />
+              </View>
+            </Pressable>
+          </ImageBackground>
+        </ScrollView>
+      </ImageBackground>
+    </View>
   );
 }
 
-const myImages = [
-  "Image1",
-  "Image2",
-  "Image3",
-  "Image4",
-]
+// const myImages = ["Image1", "Image2", "Image3", "Image4"];
+{
+  /* {myImages.map(function (image) => {
+            return(
+              <Image
+              source={require(image.filepath)}
+              style={{
+                position: "absolute",
+                top: windowHeight * 0.08,
+                left: windowWidth * 0.06,
+                height: windowHeight * 0.07, // Adjust the height as needed
+                width: windowWidth * 0.16, // Adjust the width as needed
+              }}
+            />
+            )
+          })} */
+}
 
 function TaskOnePageFour({ navigation }) {
   return (
-    <Pressable onPress={() => navigation.navigate("FifthPage")}>
+    <Pressable
+      style={{ height: "100%", width: "100%" }}
+      onPress={() => navigation.navigate("FifthPage")}
+    >
       <ImageBackground
         source={require("../assets/Images/task1tanbackground.png")}
         style={{ flex: 1, resizeMode: "cover" }}
@@ -836,20 +941,7 @@ function TaskOnePageFour({ navigation }) {
               width: windowWidth * 0.16, // Adjust the width as needed
             }}
           />
-          {myImages.map(function (image) => {
-            return(
-              <Image
-              source={require(image.filepath)}
-              style={{
-                position: "absolute",
-                top: windowHeight * 0.08,
-                left: windowWidth * 0.06,
-                height: windowHeight * 0.07, // Adjust the height as needed
-                width: windowWidth * 0.16, // Adjust the width as needed
-              }}
-            />
-            )
-          })}
+
           <Image
             source={require("../assets/Images/bigmaincharacter.png")}
             style={{
@@ -963,15 +1055,11 @@ function TaskOnePageSix({ navigation }) {
     return () => clearTimeout(timer);
   }, []);
   return (
-    <View>
-      <Image
-        source={require("../assets/Images/grassbackground.png")}
-        style={{
-          height: windowHeight,
-          width: windowWidth,
-          resizeMode: "cover",
-        }}
-      />
+    // <View>
+    <ImageBackground
+      source={require("../assets/Images/grassbackground.png")}
+      style={{ flex: 1, resizeMode: "cover" }}
+    >
       <Image
         source={require("../assets/Images/grasset01bush.png")}
         style={{
@@ -1370,17 +1458,6 @@ function TaskOnePageSix({ navigation }) {
       />
 
       <Image
-        source={require("../assets/Images/arrow0right.png")}
-        style={{
-          position: "absolute",
-          top: windowHeight * 0.45,
-          left: windowWidth * 0.88,
-          height: windowHeight * 0.1, // Adjust the height as needed
-          width: windowWidth * 0.1, // Adjust the width as needed
-          resizeMode: "cover",
-        }}
-      />
-      <Image
         source={require("../assets/Images/grasset21townsign.png")}
         style={{
           position: "absolute",
@@ -1482,17 +1559,6 @@ function TaskOnePageSix({ navigation }) {
         }}
       />
 
-      <Image
-        source={require("../assets/Images/layerforcherrymemory.png")}
-        style={{
-          position: "absolute",
-          top: windowHeight * 0.185,
-          left: windowWidth * 0.25,
-          height: windowHeight * 0.07, // Adjust the height as needed
-          width: windowWidth * 0.15, // Adjust the width as needed
-          resizeMode: "cover",
-        }}
-      />
       {showHealth && (
         <React.Fragment>
           <Image
@@ -1519,8 +1585,750 @@ function TaskOnePageSix({ navigation }) {
           />
         </React.Fragment>
       )}
+      <Pressable onPress={() => navigation.navigate("MiddleOfWorld")}>
+        <Image
+          source={require("../assets/Images/arrow0right.png")}
+          style={{
+            position: "absolute",
+            top: windowHeight * 0.45,
+            left: windowWidth * 0.88,
+            height: windowHeight * 0.1, // Adjust the height as needed
+            width: windowWidth * 0.1, // Adjust the width as needed
+            resizeMode: "cover",
+          }}
+        />
+      </Pressable>
       <StatusBar style="auto" />
-    </View>
+    </ImageBackground>
+  );
+}
+
+function MiddleOfWorld({ navigation }) {
+  return (
+    <ImageBackground
+      source={require("../assets/Images/grassbackground.png")}
+      style={{ flex: 1, resizeMode: "cover" }}
+    >
+      <Image
+        source={require("../assets/Images/verticalmiddleofpath.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.28,
+          left: windowWidth * 0.16,
+          height: windowHeight * 0.1, // Adjust the height as needed
+          width: windowWidth * 0.15, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/verticalmiddleofpath.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.38,
+          left: windowWidth * 0.16,
+          height: windowHeight * 0.1, // Adjust the height as needed
+          width: windowWidth * 0.15, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/verticalmiddleofpath.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.53,
+          left: windowWidth * 0.16,
+          height: windowHeight * 0.1, // Adjust the height as needed
+          width: windowWidth * 0.15, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/verticalmiddleofpath.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.63,
+          left: windowWidth * 0.16,
+          height: windowHeight * 0.1, // Adjust the height as needed
+          width: windowWidth * 0.15, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/middlecrossofpath.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.48,
+          left: windowWidth * 0.16,
+          height: windowHeight * 0.1, // Adjust the height as needed
+          width: windowWidth * 0.15, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/horizontalmiddleofpath.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.48,
+
+          height: windowHeight * 0.1, // Adjust the height as needed
+          width: windowWidth * 0.16, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/grasset21townsign.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.422,
+          left: "-.5%",
+          height: windowHeight * 0.08, // Adjust the height as needed
+          width: windowWidth * 0.17, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/foresttext.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.445,
+          left: windowWidth * 0.02,
+          height: windowHeight * 0.022, // Adjust the height as needed
+          width: windowWidth * 0.132, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/horizontalmiddleofpath.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.48,
+          left: windowWidth * 0.31,
+          height: windowHeight * 0.1, // Adjust the height as needed
+          width: windowWidth * 0.15, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/horizontalmiddleofpath.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.48,
+          left: windowWidth * 0.46,
+          height: windowHeight * 0.1, // Adjust the height as needed
+          width: windowWidth * 0.15, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/horizontalmiddleofpath.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.48,
+          left: windowWidth * 0.61,
+          height: windowHeight * 0.1, // Adjust the height as needed
+          width: windowWidth * 0.1, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/house.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.07,
+          left: windowWidth * 0.01,
+          width: "43.5%", // Adjust the height as needed
+          height: "25%", // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/verticalmiddleofpath.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.28,
+          left: windowWidth * 0.69,
+          height: windowHeight * 0.1, // Adjust the height as needed
+          width: windowWidth * 0.15, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/verticalmiddleofpath.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.38,
+          left: windowWidth * 0.69,
+          height: windowHeight * 0.1, // Adjust the height as needed
+          width: windowWidth * 0.15, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/verticalmiddleofpath.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.53,
+          left: windowWidth * 0.69,
+          height: windowHeight * 0.1, // Adjust the height as needed
+          width: windowWidth * 0.15, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/verticalmiddleofpath.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.63,
+          left: windowWidth * 0.69,
+          height: windowHeight * 0.1, // Adjust the height as needed
+          width: windowWidth * 0.15, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/middlecrossofpath.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.48,
+          left: windowWidth * 0.69,
+          height: windowHeight * 0.1, // Adjust the height as needed
+          width: windowWidth * 0.15, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/horizontalmiddleofpath.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.48,
+          left: windowWidth * 0.84,
+          height: windowHeight * 0.1, // Adjust the height as needed
+          width: windowWidth * 0.16, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/grasset21townsign.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.422,
+          left: windowWidth * 0.825,
+          height: windowHeight * 0.08, // Adjust the height as needed
+          width: windowWidth * 0.17, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/foresttext.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.445,
+          left: windowWidth * 0.85,
+          height: windowHeight * 0.022, // Adjust the height as needed
+          width: windowWidth * 0.132, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/market.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.085,
+          left: windowWidth * 0.5, //52
+          width: "47%", // Adjust the height as needed
+          height: "27%", // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/farmer.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.2,
+          left: windowWidth * 0.5, //
+          width: "20%", // Adjust the height as needed
+          height: "12%", // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/statue.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.35,
+          left: windowWidth * 0.44,
+          width: "15%", // Adjust the height as needed
+          height: "9%", // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/maincharacter.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.43,
+          left: windowWidth * 0.38,
+          height: windowHeight * 0.12, // Adjust the height as needed
+          width: windowWidth * 0.216, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/grasset10singlerock.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.58,
+          left: windowWidth * 0.43,
+          height: windowHeight * 0.03, // Adjust the height as needed
+          width: windowWidth * 0.07, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/blockrock.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.6,
+          left: windowWidth * 0.37,
+          height: windowHeight * 0.03, // Adjust the height as needed
+          width: windowWidth * 0.07, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/grasset13doublerock.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.62,
+          left: windowWidth * 0.37,
+          height: windowHeight * 0.03, // Adjust the height as needed
+          width: windowWidth * 0.07, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/pointyrock.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.625,
+          left: windowWidth * 0.355,
+          height: windowHeight * 0.04, // Adjust the height as needed
+          width: windowWidth * 0.1, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/grasset10singlerock.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.652,
+          left: windowWidth * 0.37,
+          height: windowHeight * 0.03, // Adjust the height as needed
+          width: windowWidth * 0.07, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/blockrock.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.672,
+          left: windowWidth * 0.42,
+          height: windowHeight * 0.03, // Adjust the height as needed
+          width: windowWidth * 0.07, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/grasset13doublerock.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.672,
+          left: windowWidth * 0.47,
+          height: windowHeight * 0.03, // Adjust the height as needed
+          width: windowWidth * 0.07, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/blockrock.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.672,
+          left: windowWidth * 0.53,
+          height: windowHeight * 0.03, // Adjust the height as needed
+          width: windowWidth * 0.07, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/pointyrock.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.645,
+          left: windowWidth * 0.55,
+          height: windowHeight * 0.03, // Adjust the height as needed
+          width: windowWidth * 0.08, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/grasset13doublerock.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.633,
+          left: windowWidth * 0.57,
+          height: windowHeight * 0.03, // Adjust the height as needed
+          width: windowWidth * 0.07, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/roundrock.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.598,
+          left: windowWidth * 0.545,
+          height: windowHeight * 0.045, // Adjust the height as needed
+          width: windowWidth * 0.1, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/grasset13doublerock.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.59,
+          left: windowWidth * 0.53,
+          height: windowHeight * 0.03, // Adjust the height as needed
+          width: windowWidth * 0.07, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/blockrock.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.59,
+          left: windowWidth * 0.488,
+          height: windowHeight * 0.025, // Adjust the height as needed
+          width: windowWidth * 0.055, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/grasset19lotofwater.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.61,
+          left: windowWidth * 0.43,
+          height: windowHeight * 0.075, // Adjust the height as needed
+          width: windowWidth * 0.155, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/grasset19lotofwater.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.63,
+          left: windowWidth * 0.43,
+          height: windowHeight * 0.034, // Adjust the height as needed
+          width: windowWidth * 0.08, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/grasset19lotofwater.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.63,
+          left: windowWidth * 0.49,
+          height: windowHeight * 0.034, // Adjust the height as needed
+          width: windowWidth * 0.08, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/grasset19lotofwater.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.61,
+          left: windowWidth * 0.43,
+          height: windowHeight * 0.034, // Adjust the height as needed
+          width: windowWidth * 0.08, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/grasset19lotofwater.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.645,
+          left: windowWidth * 0.495,
+          height: windowHeight * 0.034, // Adjust the height as needed
+          width: windowWidth * 0.08, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/postoffice.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.7,
+          left: windowWidth * 0.004,
+          width: "47%", // Adjust the height as needed
+          height: "25%", // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("../assets/Images/store.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.7,
+          left: windowWidth * 0.525,
+          width: "47%", // Adjust the height as needed
+          height: "25%", // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+
+      <Image
+        source={require("../assets/Images/arrow0right.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.48,
+          left: windowWidth * 0.874,
+          height: windowHeight * 0.095, // Adjust the height as needed
+          width: windowWidth * 0.12, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+
+      <Image
+        source={require("../assets/Images/leftarrow.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.482,
+          left: windowWidth * 0.005,
+          height: windowHeight * 0.095, // Adjust the height as needed
+          width: windowWidth * 0.12, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+    </ImageBackground>
+  );
+}
+
+function PickFromStore({ navigation }) {
+  return (
+    <ImageBackground
+      source={require("./assets/stand0.png")}
+      style={{
+        width: "100%",
+        height: windowHeight * 0.85,
+      }}
+    >
+      <Image
+        source={require("./assets/bigfarmer.png")}
+        style={{
+          position: "absolute",
+          left: windowWidth * 0.03,
+          height: windowHeight * 0.5,
+          width: windowWidth * 0.9,
+        }}
+      />
+      <Image
+        source={require("./assets/xbutton.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.03,
+
+          height: windowHeight * 0.07,
+          width: windowWidth * 0.16,
+        }}
+      />
+      <View style={{}}>
+        <Image
+          source={require("./assets/stand1.png")}
+          style={{ resizeMode: "contain" }}
+        />
+      </View>
+
+      <View style={{}}>
+        <Image
+          source={require("./assets/stand2.png")}
+          style={[
+            {
+              paddingTop: "45%",
+              width: "100%",
+              height: windowHeight * 0.1,
+              // resizeMode: "contain",
+            },
+          ]}
+        />
+      </View>
+      <View style={{ marginLeft: "-1%", marginTop: "-1%" }}>
+        <Image
+          source={require("./assets/stand2.png")}
+          style={[
+            {
+              marginTop: "41.5%",
+              paddingBottom: "45%",
+              width: "102%",
+
+              height: windowHeight * 0.1,
+              // resizeMode: "contain",
+            },
+          ]}
+        />
+      </View>
+      <Image
+        source={require("./assets/whatwouldyoulikebox.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.345,
+          left: windowWidth * 0.125,
+          height: windowHeight * 0.19, // Adjust the height as needed
+          width: windowWidth * 0.76, // Adjust the width as needed
+        }}
+      />
+      <Image
+        source={require("./assets/whatwouldyouliketext.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.37,
+          left: windowWidth * 0.165,
+          height: windowHeight * 0.12, // Adjust the height as needed
+          width: windowWidth * 0.665, // Adjust the width as needed
+        }}
+      />
+      <Image
+        source={require("./assets/seedpackbox.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.57,
+          left: windowWidth * 0.075,
+          height: windowHeight * 0.175, // Adjust the height as needed
+          width: windowWidth * 0.375, // Adjust the width as needed
+        }}
+      />
+      <Image
+        source={require("./assets/seedpack.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.57,
+          left: windowWidth * 0.105,
+          height: windowHeight * 0.16, // Adjust the height as needed
+          width: windowWidth * 0.3157, // Adjust the width as needed
+        }}
+      />
+      <Image
+        source={require("./assets/storeapple.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.639,
+          left: windowWidth * 0.22,
+          height: windowHeight * 0.05, // Adjust the height as needed
+          width: windowWidth * 0.1, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("./assets/seedpackbox.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.57,
+          left: windowWidth * 0.55,
+          height: windowHeight * 0.175, // Adjust the height as needed
+          width: windowWidth * 0.375, // Adjust the width as needed
+        }}
+      />
+      <Image
+        source={require("./assets/seedpack.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.57,
+          left: windowWidth * 0.585,
+          height: windowHeight * 0.16, // Adjust the height as needed
+          width: windowWidth * 0.3157, // Adjust the width as needed
+        }}
+      />
+      <Image
+        source={require("./assets/storeorange.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.639,
+          left: windowWidth * 0.71,
+          height: windowHeight * 0.05, // Adjust the height as needed
+          width: windowWidth * 0.083, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("./assets/seedpackbox.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.78,
+          left: windowWidth * 0.075,
+          height: windowHeight * 0.175, // Adjust the height as needed
+          width: windowWidth * 0.375, // Adjust the width as needed
+        }}
+      />
+      <Image
+        source={require("./assets/seedpack.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.78,
+          left: windowWidth * 0.105,
+          height: windowHeight * 0.16, // Adjust the height as needed
+          width: windowWidth * 0.3157, // Adjust the width as needed
+        }}
+      />
+      <Image
+        source={require("./assets/storepeach.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.839,
+          left: windowWidth * 0.17,
+          height: windowHeight * 0.09, // Adjust the height as needed
+          width: windowWidth * 0.18, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+      <Image
+        source={require("./assets/seedpackbox.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.78,
+          left: windowWidth * 0.55,
+          height: windowHeight * 0.175, // Adjust the height as needed
+          width: windowWidth * 0.375, // Adjust the width as needed
+        }}
+      />
+      <Image
+        source={require("./assets/seedpack.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.78,
+          left: windowWidth * 0.585,
+          height: windowHeight * 0.16, // Adjust the height as needed
+          width: windowWidth * 0.3157, // Adjust the width as needed
+        }}
+      />
+      <Image
+        source={require("./assets/storecoconut.png")}
+        style={{
+          position: "absolute",
+          top: windowHeight * 0.837,
+          left: windowWidth * 0.665,
+          height: windowHeight * 0.08, // Adjust the height as needed
+          width: windowWidth * 0.16, // Adjust the width as needed
+          resizeMode: "cover",
+        }}
+      />
+    </ImageBackground>
   );
 }
 
@@ -1540,6 +2348,9 @@ function App() {
       <Stack.Screen name="ThirdPage" component={TaskOnePageThree} />
       <Stack.Screen name="FourthPage" component={TaskOnePageFour} />
       <Stack.Screen name="FifthPage" component={TaskOnePageFive} />
+      <Stack.Screen name="SixthPage" component={TaskOnePageSix} />
+      <Stack.Screen name="MiddleOfWorld" component={MiddleOfWorld} />
+      <Stack.Screen name="PickFromStore" component={PickFromStore} />
     </Stack.Navigator>
   );
 }

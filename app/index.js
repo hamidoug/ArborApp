@@ -2124,14 +2124,14 @@ function MiddleOfWorld({ navigation }) {
 function PickFromStore({ navigation }) {
   return (
     <ImageBackground
-      source={require("./assets/stand0.png")}
+      source={require("../assets/Images/stand0.png")}
       style={{
         width: "100%",
         height: windowHeight * 0.85,
       }}
     >
       <Image
-        source={require("./assets/bigfarmer.png")}
+        source={require("../assets/Images/bigfarmer.png")}
         style={{
           position: "absolute",
           left: windowWidth * 0.03,
@@ -2140,7 +2140,7 @@ function PickFromStore({ navigation }) {
         }}
       />
       <Image
-        source={require("./assets/xbutton.png")}
+        source={require("../assets/Images/xbutton.png")}
         style={{
           position: "absolute",
           top: windowHeight * 0.03,
@@ -2151,14 +2151,14 @@ function PickFromStore({ navigation }) {
       />
       <View style={{}}>
         <Image
-          source={require("./assets/stand1.png")}
+          source={require("../assets/Images/stand1.png")}
           style={{ resizeMode: "contain" }}
         />
       </View>
 
       <View style={{}}>
         <Image
-          source={require("./assets/stand2.png")}
+          source={require("../assets/Images/stand2.png")}
           style={[
             {
               paddingTop: "45%",
@@ -2171,7 +2171,7 @@ function PickFromStore({ navigation }) {
       </View>
       <View style={{ marginLeft: "-1%", marginTop: "-1%" }}>
         <Image
-          source={require("./assets/stand2.png")}
+          source={require("../assets/Images/stand2.png")}
           style={[
             {
               marginTop: "41.5%",
@@ -2185,7 +2185,7 @@ function PickFromStore({ navigation }) {
         />
       </View>
       <Image
-        source={require("./assets/whatwouldyoulikebox.png")}
+        source={require("../assets/Images/whatwouldyoulikebox.png")}
         style={{
           position: "absolute",
           top: windowHeight * 0.345,
@@ -2195,7 +2195,7 @@ function PickFromStore({ navigation }) {
         }}
       />
       <Image
-        source={require("./assets/whatwouldyouliketext.png")}
+        source={require("../assets/Images/whatwouldyouliketext.png")}
         style={{
           position: "absolute",
           top: windowHeight * 0.37,
@@ -2205,7 +2205,7 @@ function PickFromStore({ navigation }) {
         }}
       />
       <Image
-        source={require("./assets/seedpackbox.png")}
+        source={require("../assets/Images/seedpackbox.png")}
         style={{
           position: "absolute",
           top: windowHeight * 0.57,
@@ -2215,7 +2215,7 @@ function PickFromStore({ navigation }) {
         }}
       />
       <Image
-        source={require("./assets/seedpack.png")}
+        source={require("../assets/Images/seedpack.png")}
         style={{
           position: "absolute",
           top: windowHeight * 0.57,
@@ -2225,7 +2225,7 @@ function PickFromStore({ navigation }) {
         }}
       />
       <Image
-        source={require("./assets/storeapple.png")}
+        source={require("../assets/Images/storeapple.png")}
         style={{
           position: "absolute",
           top: windowHeight * 0.639,
@@ -2236,7 +2236,7 @@ function PickFromStore({ navigation }) {
         }}
       />
       <Image
-        source={require("./assets/seedpackbox.png")}
+        source={require("../assets/Images/seedpackbox.png")}
         style={{
           position: "absolute",
           top: windowHeight * 0.57,
@@ -2246,7 +2246,7 @@ function PickFromStore({ navigation }) {
         }}
       />
       <Image
-        source={require("./assets/seedpack.png")}
+        source={require("../assets/Images/seedpack.png")}
         style={{
           position: "absolute",
           top: windowHeight * 0.57,
@@ -2256,7 +2256,7 @@ function PickFromStore({ navigation }) {
         }}
       />
       <Image
-        source={require("./assets/storeorange.png")}
+        source={require("../assets/Images/storeorange.png")}
         style={{
           position: "absolute",
           top: windowHeight * 0.639,
@@ -2267,7 +2267,7 @@ function PickFromStore({ navigation }) {
         }}
       />
       <Image
-        source={require("./assets/seedpackbox.png")}
+        source={require("../assets/Images/seedpackbox.png")}
         style={{
           position: "absolute",
           top: windowHeight * 0.78,
@@ -2277,7 +2277,7 @@ function PickFromStore({ navigation }) {
         }}
       />
       <Image
-        source={require("./assets/seedpack.png")}
+        source={require("../assets/Images/seedpack.png")}
         style={{
           position: "absolute",
           top: windowHeight * 0.78,
@@ -2287,7 +2287,7 @@ function PickFromStore({ navigation }) {
         }}
       />
       <Image
-        source={require("./assets/storepeach.png")}
+        source={require("../assets/Images/storepeach.png")}
         style={{
           position: "absolute",
           top: windowHeight * 0.839,
@@ -2298,7 +2298,7 @@ function PickFromStore({ navigation }) {
         }}
       />
       <Image
-        source={require("./assets/seedpackbox.png")}
+        source={require("../assets/Images/seedpackbox.png")}
         style={{
           position: "absolute",
           top: windowHeight * 0.78,
@@ -2308,7 +2308,7 @@ function PickFromStore({ navigation }) {
         }}
       />
       <Image
-        source={require("./assets/seedpack.png")}
+        source={require("../assets/Images/seedpack.png")}
         style={{
           position: "absolute",
           top: windowHeight * 0.78,
@@ -2318,7 +2318,7 @@ function PickFromStore({ navigation }) {
         }}
       />
       <Image
-        source={require("./assets/storecoconut.png")}
+        source={require("../assets/Images/storecoconut.png")}
         style={{
           position: "absolute",
           top: windowHeight * 0.837,

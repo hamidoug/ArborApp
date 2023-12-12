@@ -21,6 +21,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
 import FixWhiteSpace from "./_layout";
+import { LinearGradient } from "expo-linear-gradient";
 
 const windowHeight = Dimensions.get("window").height;
 const windowWidth = Dimensions.get("window").width;
@@ -36,6 +37,10 @@ const ChosenSeed = {
 };
 
 export default function MemoryDetails6({ navigation }) {
+  const onButtonLongPress = () => {
+    // Handle long press action, e.g., show a modal or tooltip
+    alert("Long Pressed!"); // Example action, replace with your functionality
+  };
   const [memoryName, setMemoryName] = useState("");
 
   useEffect(() => {
@@ -302,7 +307,11 @@ export default function MemoryDetails6({ navigation }) {
               }}
             />
           </ImageBackground>
-          <Pressable onPress={() => navigation.navigate("EndOfPlanting")}>
+          <Pressable
+            onPress={() => navigation.navigate("EndOfPlanting")}
+            onLongPress={onButtonLongPress}
+            delayLongPress={1000}
+          >
             <ImageBackground
               source={require("../assets/Images/darkbox.png")}
               style={{
@@ -312,15 +321,29 @@ export default function MemoryDetails6({ navigation }) {
                 width: windowWidth * 0.55,
               }}
             >
-              <Image
-                source={require("../assets/Images/planttext2.png")}
+              <LinearGradient
+                colors={["#006400", "#008000", "#00FF00"]} // Use your desired colors
                 style={{
-                  marginTop: "12%",
-                  marginLeft: "12.588%",
-                  height: "45%",
-                  width: "77%",
+                  alignItems: "center",
+                  borderRadius: 5, // Adjust as needed
+                  padding: 10, // Adjust as needed
+                  marginTop: "3%",
+                  marginLeft: "6%",
+                  height: windowHeight * 0.1175,
+                  width: windowWidth * 0.5,
+                  zIndex: 100000,
                 }}
-              />
+              >
+                <Image
+                  source={require("../assets/Images/planttext2.png")}
+                  style={{
+                    marginTop: "12%",
+                    marginLeft: "3%",
+                    height: "45%",
+                    width: "77%",
+                  }}
+                />
+              </LinearGradient>
             </ImageBackground>
           </Pressable>
         </ScrollView>

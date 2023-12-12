@@ -15,15 +15,25 @@ import {
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as Font from "expo-font";
+import * as Animatable from "react-native-animatable";
 import { AppLoading } from "expo";
 import FixWhiteSpace from "./_layout";
+import { ThemeProvider, createTheme, Button } from "@rneui/themed";
+import { Accelerometer } from "expo-sensors";
 
 const windowHeight = Dimensions.get("window").height;
 const windowWidth = Dimensions.get("window").width;
+const theme = createTheme({
+  components: {
+    Button: {
+      raised: true,
+    },
+  },
+});
 const ChosenSeed = {
   apple: require("../assets/Images/storeapple.png"),
   orange: require("../assets/Images/storeorange.png"),
@@ -44,6 +54,23 @@ export default function TaskOnePageTwoandThree({ navigation }) {
     }, 2000);
 
     return () => clearTimeout(timer);
+  }, []);
+
+  const [data, setData] = useState({
+    x: 0,
+    y: 0,
+    z: 0,
+  });
+  useEffect(() => {
+    const subscription = Accelerometer.addListener(({ x, y, z }) => {
+      setData({ x, y, z });
+    });
+
+    Accelerometer.setUpdateInterval(1000);
+
+    return () => {
+      subscription.remove();
+    };
   }, []);
 
   return (
@@ -318,14 +345,27 @@ export default function TaskOnePageTwoandThree({ navigation }) {
                   width: "70%",
                 }}
               >
-                {/* <Pressable onPress={() => navigation.navigate("FourthPage")}> */}
-                <Pressable onPress={() => navigation.navigate("FourandFive")}>
-                  <View style={{ paddingLeft: "17%", paddingTop: "17%" }}>
+                <Pressable
+                  onPress={() => navigation.navigate("FourandFive")}
+                  style={{
+                    opacity: 1 - Math.abs(data.x), // Changes opacity based on the x-axis movement
+                    // ... other styles
+                  }}
+                >
+                  {/* <View style={{ paddingLeft: "17%", paddingTop: "17%" }}> } */}
+                  <Animatable.View
+                    animation="pulse"
+                    iterationCount="infinite"
+                    useNativeDriver={true}
+                    style={{ paddingLeft: "17%", paddingTop: "17%" }}
+                  >
                     <Image
                       source={require("../assets/Images/eattext.png")}
                       style={{ resizeMode: "contain" }}
                     />
-                  </View>
+                    {/* </View>
+                </Pressable> */}
+                  </Animatable.View>
                 </Pressable>
               </ImageBackground>
               <View style={{ height: windowHeight * 0.05 }}></View>
